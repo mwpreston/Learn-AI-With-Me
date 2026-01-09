@@ -2,21 +2,23 @@
 
 > **Goal:** Understand what a context window is, what fits inside it, and why exceeding it leads to forgotten details, ignored instructions, and degraded responses.
 
-A while back I was in a pinch to complete a project that involved quite a bit of configuration and coding on both a platform that I was unfamiliar with and a programming language I've never used - needless to say, ChatGPT was a godsend in walking me through syntax and configurations well into the wee hours of the morning - until I hit an error, and needed to go back to reconfigure something we'd already configured a few hours before that - but the LLM had no idea what I was talking about - and of course, it didn't really tell me that - instead, just started making up a bunch of stuff that sounded great, but I knew was wrong...
+A while back I was in a pinch to complete a project that involved quite a bit of configuration and coding on both a platform that I was unfamiliar with and a programming language I've never used - needless to say, ChatGPT was a godsend in walking me through syntax and configurations well into the wee hours of the morning 
 
-🤔 “But I Already Told You That…” - I can clearly remember telling AI this multiple times...
+That is, until I hit an error, and needed to go back to reconfigure something we'd already configured a few hours before that - but the LLM had no idea what I was talking about - and of course, it didn't really tell me that - instead, just started making up a bunch of stuff that sounded great, but I knew was wrong...
 
-If you’ve spent any time chatting with an AI, you’ve probably had this experience:
+🤔 “But I Already Told You That…” - I can clearly remember prompting this multiple times...
+
+If you’ve spent any time chatting with an LLM, you’ve probably had this experience:
 
 You explain something carefully
 The model responds correctly
-A few turns later, it forgets
+After repetition may times, it forgets
 Or contradicts itself
 Or ignores earlier instructions
 
-It feels like memory loss - but it is most definitely not...
+It feels like it's literally lost its memory, but it is not that...
 
-It’s something much simpler. Somthing much more limiting. 
+It’s something much simpler. It involves the amount of information that a model can see and/or understand at once.
 
 To help illustrate this, we really need to understand what the model actually "sees".
 
@@ -35,7 +37,7 @@ That window is called the **context window**.
 
 ## 📦 What Is a Context Window?
 
-In lamence, a cotext window is just the maximum number of tokens that the model is able to consider when generating a response.
+At its very core, a context window is just the maximum number of tokens that the model is able to consider when generating a response.
 
 A context window includes everything the model is given:
 
@@ -45,32 +47,26 @@ A context window includes everything the model is given:
 * Retrieved documents
 * The model’s own previous output
 
-If something doesn’t fit inside that window:
-
-The model cannot see it.
+If something doesn’t fit inside that window the model **cannot** see it.
 
 Not partially, not kind of - it's gone!
 
 ## 🔢 Sounds terrible - so how big are these context windows?
 
-A natural question at this point is:
+Well, like many other answers to many other questions related to IT the response is  **It Depends**
 
-> Okay… so how big is this window?
+Different models support different context window sizes, and those limits can change over time. As a ballpark, many modern general-purpose language models support context windows on the order of tens of thousands of tokens.
 
-Well, like many other answers to many other questions related to it the response is - **It Depends**
-
-Different models support different context window sizes, and those limits can change over time. As a  ballpark, many modern general-purpose language models support context windows on the order of tens of thousands of tokens.
-
-To help us understand what tens of thousands of tokens are:
+So how much is tens of thousands of tokens?  Well:
 
 * A few thousand tokens ≈ a couple pages of text
 * Tens of thousands of tokens ≈ a short technical document or a long conversation
 
 Remember from the previous lesson when we talked about tokens - one of the main takeaways was **tokens are not words**
 
-That's why a back and forth conversations that appears to be *small* can actually be much larger than you would expect once it's tokenized.
+That's why back and forth conversations that appears to be *small* can actually be much larger than you would expect once it's tokenized.
 
-The key takeway here is to really ignore the hard number, just know that once a context window has exceeded it's token limit, things get weird...
+The key takeaway here is to really ignore the hard number, just know that once a context window has exceeded its token limit, things start to get... weird...
 
 ## 🧯 So What Actually Happens When the Context Window Fills Up
 
@@ -86,27 +82,33 @@ What gets dropped depends on the system managing the conversation, not the model
 
 * Early instructions disappear
 * Initial constraints vanish
-* Important background silently falls out of view
+* Important background information silently falls out of view
 
 From the model’s perspective, that information simply no longer exists.
 
-This explains why models can often contridict answers that they gave you earlier.  If early instructions have been purged, all of a sudden they start ignoring instructions that were previously stated (I told you not to use emm dashes!!!!)
+This explains why models can often contradict answers that they gave you earlier, or feel like they are hallucinating, making things up.  
 
-The odd bit though, they still appear very confident, even though they are wrong - the answers still *look* good!
+So many times I instruct an LLM to not give me those dang emm dashes - but low and behold, after an hour or so of going back and forth, it starts spitting them out again.
 
-They’re not changing their mind, they’re just now working with incomplete information.
+Or it loses context as to what I was even talking about from the beginning!
+
+The odd bit though, the responses still appear very confident, even though they are wrong - the answers still *look* good!
+
+The models are not changing their mind (or losing it), they’re just now working with incomplete information.
 
 ### 🧠 A Critical Insight
 
-I had this assumption, I'm sure many others have had it as well - “Surely the model knows what matters.”
+When learning about context windows, I had this assumption which I'm sure many others will have as well - “Surely the model knows what matters from our past conversations - can't I just tell it that something is important?”
 
-It doesn’t. It has no concept of priority across time, it only knows what it can see within that window
+But the opposite is true. Models have no idea what matters - and while I can say something is important, once that instruction falls out of the context window, it really doesn't matter.
+
+It has no concept of priority across time, it only knows what it can see within that window
 
 Presence matters, order matters, recency matters.
 
-Thats it! Importance does not.
+That's it! Importance does not.
 
-### 🔁 The Long Conversations Dilema
+### 🔁 The Long Conversations Dilemma
 
 Every response the model generates:
 
@@ -116,17 +118,17 @@ Every response the model generates:
 
 Over time, this creates a sliding window effect.
 
-This is why long chats feel worse over time. Early agreements and instructions disappear and you end up repeating yourself
+This is why long chats feel like they get worse over time. Early agreements and instructions disappear, and you end up having to re-prompt, or repeat yourself
 
 This isn’t a bug.
 
-It’s how the system works.
+It’s just how the system works.
 
 ## 🔗 Connecting Back To Tokens (Lesson 2)
 
 This is exactly why Lesson 2 mattered.
 
-Context limits are ** measured in Tokens **, not words, not characters
+Context limits are **measured in Tokens**, not words, not characters
 
 Two prompts that look similar can have very different token counts - which in turn will have very different outcomes.
 
@@ -142,11 +144,11 @@ Not directly.
 
 Language models don’t have a built-in notion of memory or pinned information. Anything that “persists” across turns is managed outside the model by the system using it.
 
-There are several architectural approaches to handling this, which we’ll explore in later lessons.
+There are several architectural approaches to handling this such as embeddings, which we’ll explore in the [next lesson](../lesson-04-embeddings/README.md).
 
 **❓ Why do some chat applications seem to remember more than the raw limit?**
 
-Because the application is doing extra work.
+Because that chat application is doing all the extra work to make sure the models know what's up.
 
 Many systems summarize, compress, or selectively re-introduce information behind the scenes to stay within limits. The model itself isn’t remembering. It's just being reminded with a short, contextual overview.
 
@@ -162,14 +164,14 @@ In practice, systems solve this by:
 * Representing information outside the model
 * Bringing only the most relevant pieces back in when needed
 
-There are multiple ways to do this, each with different tradeoffs. We’ll cover them step by step in upcoming lessons.
+There are multiple ways to do this, each with different trade offs. We’ll cover them in upcoming lessons.
 
 ## 🧭 Reframing the Problem
 
 At this point, it’s worth resetting expectations:
 
 Context limits are not something you “work around with better prompts.”
-They’re something you design around with systems.
+They’re something you design around with better models or systems.
 
 ## Wait, No Code This Lesson?
 
@@ -179,11 +181,11 @@ More importantly, simulating this behavior in code often adds complexity without
 
 In later lessons, we’ll focus on practical techniques and architectures that design around this limitation, where code examples provide much more value.
 
-## 📝 Lesson 3 Takeaways (Lock These In)
+## 📝 Lesson 3 Takeaways
 
 Before moving on, you should be comfortable with these ideas:
 
-* 📦 Models can only see a fixed number of tokens at once
+* 📦 Models can only see a fixed number of tokens at once - this fixed number is called a Context Window
 * 🧠 Anything outside the context window is invisible
 * 🔁 Long conversations push old information out
 * ⚠️ Forgetting is a structural limitation, not a bug
