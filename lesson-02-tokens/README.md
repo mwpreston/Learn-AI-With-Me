@@ -332,4 +332,4 @@ They’ll become concrete as we start building more complex examples.
 
 ## 👀 Looking Ahead
 
-In the next lesson, we'll explore context - why models forget, hallucinate, and how they know what matters
+In the [next lesson](../lesson-03-context/README.md), we'll explore context windows - why models forget, hallucinate, and how they know what matters.

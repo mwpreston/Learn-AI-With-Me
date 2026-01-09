@@ -191,7 +191,7 @@ Before moving on, you should be comfortable with these ideas:
 
 ## 👀 Looking Ahead
 
-In the next lesson, we’ll explore embeddings - how meaning can be represented outside the context window, and how systems decide what information is worth bringing back in.
+In the [next lesson](../lesson-04-embeddings/README.md), we’ll explore embeddings - how meaning can be represented outside the context window, and how systems decide what information is worth bringing back in.
 
 This is where we stop trying to fit everything into context…
 and start getting intentional about what belongs there.

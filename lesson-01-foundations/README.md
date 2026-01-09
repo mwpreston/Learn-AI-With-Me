@@ -160,4 +160,4 @@ Before moving on, you should be comfortable with these statements:
 
 If any of those still feel fuzzy, rerun the script a few more times and reread the earlier sections.
 
-In the next lesson, we’ll look more closely at how text is broken down internally, and why the model “sees” language differently than we do.
+When you are ready, let's move on to [Lesson 2](../lesson-02-tokens/README.md) where we will begin to explore tokens - how text is broken down internally, and why the model “sees” language differently than we do.
