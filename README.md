@@ -1,6 +1,6 @@
 # 🤖 Learn AI with Me
 
-👋 Hi There!  I'm Mike and as of writing this I know very little about AI - but that's about to change...I hope!
+👋 Hi There!  I'm Mike and as of writing this I know very little about AI. But that's about to change...I hope!
 
 Backstory - After a solid year of going back and forth with ChatGPT I noticed that these LLMs were getting better, producing significantly more accurate content. It was at this point I figured I better learn how this is all working, as it's honestly, beginning to accomplish more and more things that I do on a daily basis, but faster, and most the time, better!
 
@@ -10,16 +10,15 @@ Which leads me to now and this series - This repository, once completed, will co
 
 The goal of this series is simple:
 
-🎯 Go from “I know nothing about AI” → “I can confidently build and reason about an AI agent.”
+🎯 Go from “I know nothing about AI” → “I can confidently build an AI agent and understand how it 'reasons'”
 
 Each lesson will build on the previous one, combining:
 
-* 🧠 Plain-language explanations
-* 🧩 Visual mental models
+* 🧠 Explanations of the concept
 * 💻 Runnable code examples
-* 🛠️ Practical exercises
+* 🛠️ Practical exercises you can do on your own
 
-No prior AI or ML background is required - which is obvious, because I have none - so let's learn this together!
+No prior AI background is required. Which is obvious, because I have none - so let's learn this together!
 
 ## 📁 How This Repository is Organized
 
@@ -44,7 +43,7 @@ lesson-XX-lesson-name/
 ├── images/            # 🏋️ Images
 ```
 
-Feel free to work through lessons sequentially, or jump to a specific topic if you already have some background.
+Feel free to work through lessons sequentially, or jump to a specific topic if you already have some background. I really don't care :)
 
 ## 📚 What This Series Covers
 
@@ -65,13 +64,13 @@ Recommended approach:
 * 🧪 Modify the code and break things
 * ➡️ Move on when the concepts feel intuitive
 
-You don’t need to memorize anything — the focus is understanding why things behave the way they do.
+You don’t need to memorize anything. There is no test at the end. The focus is really all about understanding why things behave the way they do.
 
 ## 🧰 Prerequisites
 
 * 🧑‍💻 Basic familiarity with programming concepts
 * 🔑 API access into an LLM - I'll be using OpenAI
-* 🐍 Python installed (used in most examples)
+* 🐍 Python (used in most examples)
 * 🤔 Curiosity and willingness to experiment
 
 Specific setup instructions (virtual environments, dependencies, API keys, etc.) are included inside each lesson folder.
@@ -93,7 +92,7 @@ If you’ve ever wondered how the model actually came up with that answer, you�
 
 This project is meant to be approachable, practical, and accurate. Contributions that help improve clarity and understanding are always welcome.
 
-You don’t need to be an AI expert to contribute — in fact, some of the best contributions come from people learning this material for the first time.
+You don’t need to be an AI expert to contribute — in fact, some of the best contributions come from people learning this material for the first time as that is who it is targeted at. If you don't understand, then many others don't - please contribute however you can...
 
 ### 💡 Ways to Contribute
 
@@ -103,10 +102,12 @@ Here are some great ways to help:
 Small fixes matter, especially in explanations and comments.
 * 🧠 Add clarity or context
 If something didn’t click for you at first, improving the explanation helps everyone.
+* ❓ Send me your questions
+If you have a question that came up during a lesson, let me know. The idea is to try to be holistic and I don't know everything. Bonus points if you have the answer too!
 * 🧩 Improve examples
 Simplify code, add comments, or provide an alternative example that’s easier to reason about.
 * 🧭 Add diagrams or visuals
-Mental models are a big focus of this series. Visuals are always welcome.
+Mental models always help. Visuals are always welcome.
 * 📝 Expand lesson notes
 Extra context, common pitfalls, or “things that confused me” notes are incredibly valuable.
 
@@ -117,7 +118,7 @@ Extra context, common pitfalls, or “things that confused me” notes are incre
 * ✏️ Make your changes
 * 📬 Open a pull request with a short explanation of what you changed and why
 
-If you’re unsure where something belongs, that’s okay — open a PR or issue and we’ll figure it out.
+If you’re unsure where something belongs, that’s okay — open a PR or issue, and we’ll figure it out.
 
 ### 🧭 Contribution Guidelines
 
@@ -128,6 +129,7 @@ A few simple guidelines to keep things consistent:
 * Prefer understanding over completeness
 * Examples should favor clarity over cleverness
 * If adding code, include comments explaining why, not just what
+* Be polite and respectful
 
 This is a learning-first repository, not a reference manual.
 
