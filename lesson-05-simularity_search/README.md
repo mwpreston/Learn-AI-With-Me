@@ -1,76 +1,52 @@
-🧠 Lesson 5: Similarity Search — Finding Relevant Information
+# 🧠 Lesson 5: Similarity Search — Finding Relevant Information
 
-Goal: Understand how similarity search works, why keyword-based search often fails, and how embeddings are used to find relevant information based on meaning rather than exact words.
+> **Goal:** Understand how similarity search works, why keyword-based search often fails, and how embeddings are used to find relevant information based on meaning rather than exact words.
 
-🤔 Finding Information Is the Real Problem
+🤔 When Designing around AI, Finding Information Is the Real Problem
 
 Up to this point, we’ve talked a lot about models.
 
 But in real systems, the harder problem usually isn’t generating an answer.
 
-It’s this:
+It's how do we find the right information to give the model in the first place?
 
-How do we find the right information to give the model in the first place?
-
-If the model never sees the right context, it can’t give a good answer — no matter how capable it is.
+If the model never sees the right context, it can’t give a good answer. No matter how good the model is.
 
 This is where similarity search comes in.
 
-🔍 Why Keyword Search Falls Apart
+## 🔍 Why Keyword Search Falls Apart
 
-Traditional search systems are built around keywords.
+When we think of search, we mostly think of traditional search - but traditional search systems are built around keywords.
 
-They work well when:
+They work really well when we know the exact terms to search for, when the text uses a consistent language, and when meaning and wording line up cleanly.
 
-You know the exact terms to search for
+But when we get into a real-world type scenario, traditional keyword search quickly breaks down...
 
-The text uses consistent language
+For instance, suppose we search for *"ransomware recovery"*
 
-Meaning and wording line up cleanly
+A traditional keyword-based search might miss content such as *"restoring systems after encryption"*, *"recoverying data following a malware attack"*, or *"post-incident restore procedures"*
 
-But they break down quickly in real-world scenarios.
+Certainly all of these topics are relevant, but they don't share any of the same keywords within our initial search
 
-Example
+The problem here, well, keywords don't nessessarily translate into meaning..
 
-Suppose you search for:
+## 🧠 Similarity Search Solves That Problem
 
-“ransomware recovery”
+Similarity search doesn’t ask: **Does this text contain the same words?**
 
-A keyword-based search might miss content that says:
+Instead, it asks: **Does this text mean the same thing?**
 
-“restoring systems after encryption”
-
-“recovering data following malware activity”
-
-“post-incident restore procedures”
-
-All of those are relevant — but they don’t share the same keywords.
-
-The problem isn’t missing data.
-
-The problem is that keywords don’t represent meaning.
-
-🧠 Similarity Search Solves a Different Problem
-
-Similarity search doesn’t ask:
-
-Does this text contain the same words?
-
-It asks:
-
-Does this text mean the same thing?
-
-Instead of comparing strings, we compare embeddings.
+Instead of comparing strings, simularity search compares embeddings.
 
 And because embeddings represent meaning, we can find relevant information even when:
 
-The wording is different
+* The wording is different
+* Synonyms are used
+* The phrasing changes completely
 
-Synonyms are used
+We saw this briefly in Lesson 4 when we ran some code that analyzed a handful of sentences - even completely different sentences scored as being similar, without even using the same words.
 
-The phrasing changes completely
-
-🔄 How Similarity Search Works (Step by Step)
+## 🔄 How Similarity Search Works
 
 Let’s walk through the process at a high level.
 

@@ -29,14 +29,10 @@ The repository is structured as one folder per lesson, in learning order.
 /
 ├── README.md
 ├── lesson-01-foundations/
-├── lesson-02-models-and-prompts/
-├── lesson-03-tokens-context-and-limits/
-├── lesson-04-embeddings-and-search/
-├── lesson-05-retrieval-and-rag/
-├── lesson-06-tools-and-function-calling/
-├── lesson-07-memory-and-state/
-├── lesson-08-agents/
-└── lesson-09-building-an-agent/
+├── lesson-02-tokens/
+├── lesson-03-context/
+├── lesson-04-embeddings/
+├── future_lessons
 ```
 
 Each lesson is self-contained and will typically include:
@@ -45,27 +41,19 @@ Each lesson is self-contained and will typically include:
 lesson-XX-lesson-name/
 ├── README.md          # 📘 Lesson explanation (theory + mental models)
 ├── examples/          # 💻 Runnable code samples
-├── exercises/         # 🏋️ Optional hands-on challenges
-├── diagrams/          # 🧭 Visuals used in the lesson
-└── notes.md           # 📝 Extra context, gotchas, or references
+├── images/            # 🏋️ Images
 ```
 
 Feel free to work through lessons sequentially, or jump to a specific topic if you already have some background.
 
 ## 📚 What This Series Covers
 
-It's not all hammered out yet, but in my own aspirations, here's what I'd like to cover...
+You will see this get updated as new lessons are created - For now, this is what we've got!
 
-* 🧠 What large language models actually do (at a high level)
-* 🔤 Tokens, context windows, and why they matter
-* ✍️ Why prompts work (and why they fail)
-* ❓ What the heck is temperature, inference, transformers, etc...
-* 🧮 How embeddings enable semantic search
-* 🔎 How Retrieval Augmented Generation (RAG) works
-* 🔌 How tools and function calling extend models
-* 🧠 What “memory” means in AI systems
-* 🤖 How agents make decisions and take actions
-* 🧱 How to assemble all of this into a working agent
+* 🧠 [Lesson 1 - Foundations](lesson-01-foundations/README.md) -> Understand, at a high level, how LLMs actually work - and why even when we send the same prompt, we get different answers - all that seem to make sense...
+* 🔤 [Lesson 2 - Tokens](lesson-02-tokens/README.md) -> Understand what tokens are, why language models use them, and why tokens explain things like weird wording, context limits, and cost!
+* ✍️ [Lesson 3 - Context Windows](lesson-03-context/README.md) -> Understand what a context window is, what fits inside it, and why exceeding it leads to forgotten details, ignored instructions, and degraded responses.
+* ❓ [Lesson 4 - Embeddings](lesson-04-embeddings/README.md) -> Understand what embeddings are, what they actually look like, how vectors and vector databases fit together, and how embeddings are used to work with documents and past conversations when using an LLM.
 
 ## 🚀 How to Use This Repo
 
