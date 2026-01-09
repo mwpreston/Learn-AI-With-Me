@@ -1,0 +1,38 @@
+# --- Secrets ---
+**/.env
+!**/.env.example
+
+# --- Python venvs ---
+**/.venv/
+**/venv/
+**/env/
+
+# --- Python runtime ---
+**/__pycache__/
+**/*.py[cod]
+
+# --- Tooling caches ---
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+
+# --- Jupyter ---
+**/.ipynb_checkpoints/
+
+# --- AI artifacts ---
+**/.cache/
+**/tokenizer_cache/
+**/hf_cache/
+**/wandb/
+**/mlruns/
+
+# --- Build ---
+dist/
+build/
+*.egg-info/
+
+# --- OS / Editors ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
