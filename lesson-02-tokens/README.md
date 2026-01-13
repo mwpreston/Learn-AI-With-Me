@@ -349,4 +349,4 @@ If this all still feels a bit foreign, that’s okay - After the first 4 or 5 le
 
 ## 👀 Looking Ahead
 
-In the [next lesson](../lesson-03-context/README.md), we'll explore context windows - why models forget, hallucinate, and how they know what matters.
+In the [next lesson](../lesson-03-hidden-state-vectors/README.md), we'll explore hidden state - the secret helper models have to help understand intent and generate answers
