@@ -1,0 +1,15 @@
+Ransomware encrypts data to make systems unusable until payment is demanded.
+Safe recovery starts by restoring from known-clean backups, not the most recent backups.
+Attackers often try to destroy or delete backups to prevent recovery.
+Immutable backups reduce the chance that recovery points can be altered or wiped out.
+Test restores are essential because a backup that cannot be restored is not a backup.
+Use a clean recovery environment to reduce the risk of reinfection during restoration.
+Before restoring, verify identity systems and credentials to avoid restoring into a compromised environment.
+Network segmentation can limit lateral movement and reduce blast radius during an attack.
+MFA and least-privilege access reduce the chance attackers can take over admin accounts.
+Incident response should prioritize containment, then recovery, then verification before returning to production.
+Communicate to leadership in plain language: impact, timeline, and the plan to restore safely.
+If attackers exfiltrated data, recovery also includes legal, regulatory, and customer notification steps.
+Recovery point selection matters: choose a restore point before the intrusion, not just before encryption.
+Keep backup infrastructure isolated so attackers cannot easily reach it from production systems.
+A recovery plan should include restore runbooks and periodic tabletop exercises.
