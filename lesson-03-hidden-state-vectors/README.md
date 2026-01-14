@@ -8,7 +8,7 @@
 
 In [Lesson 2](../lesson-02-tokens/README.md), we learned that:
 
-* Text is broken into tokens  
+* Text is broken into tokens.  
 * Tokens are what the model actually reads  
 * The model predicts what comes next, one token at a time  
 
@@ -25,6 +25,7 @@ This is where **hidden state** comes in.
 A **hidden state** is the model’s internal representation of everything it has seen *so far*.
 
 It’s how the model keeps track of:
+
 * The topic  
 * The intent  
 * The structure of the response  
@@ -38,8 +39,7 @@ You never see it, you never store it, and you never retrieve it.
 
 But it's there. It exists during generation, and it’s doing all the work.
 
-
-## 🔁 The Core Loop 
+## 🔁 The Core Loop
 
 Every modern language model runs this loop repeatedly:
 
@@ -60,6 +60,7 @@ Remember - the model doesn't see this as a sentence, but rather a sequence of to
 `["How", " can", " a", " midsize", " company", " protect", " against", " ransomware", "?"]`
 
 Therefore, this may get processed as follows:
+
 1. The first token is read `How`. At this point, hidden state may reflect the following:
 
     * Intent: Question
@@ -95,9 +96,49 @@ Therefore, this may get processed as follows:
     * Intent: Advice/Best Practices
     * Audience: Midsize Company
     * Constraints: Not a startup, not a massive enterprise
-    * Domain: Cyber Security
+    * Domain: Cybersecurity
     * Threat Framing: Defensive Posture
     * Topic: Ransomware
     * Sub Topics: Backup, Recovery, Incident Response
 
 The model will then use this hidden state as it generates answers (tokens), one by one, updating it after each and every token generation.
+
+***NOTE:*** We have represented hidden state here as text, but in reality, it's just a bunch of numbers, like a lot of them! It could contain up to hundreds or thousands of values that the model uses to compare and contrast when selecting the next token.
+
+## ⚠️ Hidden State Is Temporary
+
+This is one important fact to remember. Hidden state only exists while the model is running!
+
+Once the response has been generated the hidden state is discarded - nothing is stored and nothing is remembered.
+
+When we begin a new prompt, a brand new hidden state is created and model begins from scratch.
+
+## No Code Today
+
+Remember hidden state is temporary and is internal to the model, so writing code to help illustrate it doesn't really make sense.
+
+Even if we could see it, it would simply be a series of numbers that means nothing to us but everything to the model.
+
+So, no homework tonight kids!
+
+## 📝 Lesson 3 Takeaways
+
+Before moving on, you should be comfortable with these ideas:
+
+* 🧠 Hidden state represents what the model understands so far
+* 🔁 It is updated after every token
+* ⏳ It exists only during generation
+* ❌ It is not memory and cannot be stored
+* 🧱 It is influenced only by tokens inside the context window
+
+👀 Looking Ahead
+
+You may be wondering what I meant when I mentioned Context Window above. In the [next lesson](../lesson-04-context/README.md), we will discuss exactly that.
+
+* Why models forget
+* Why long conversations break down
+* Why “just add more text” doesn’t work
+
+Hidden state explains how the model understands.
+
+Context explains what it’s allowed to understand.

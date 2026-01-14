@@ -93,7 +93,122 @@ That question or prompt is itself turned into an embedding, and then compared to
 
 The top n number of results are returned - these results are then also passed to the LLM via Context and the LLM generates an answer using the results.
 
+## 👀 Lets See It In Action
 
+Alright, let's walk through a small code example where we can see how keyword search and similarity search work, mainly highlighting the differences between them. After running this, you'll see why keyword search just doesn't cut it in the world of LLMs.
+
+### Getting Started
+
+Before we can interact with OpenAI, you'll need to give the code access to your API key.
+
+If you need help signing up for OpenAI and creating an API key - [follow these instructions](https://platform.openai.com/docs/quickstart)...
+
+Within the `examples` folder you will find a file called `.env.example` - Go ahead and paste your API key in there, rename the file to just `.env` and save!
+
+Also, as with many python based projects, we are probably best to leverage venv - so let's do that! 
+
+From inside the `lesson-06-similarity-search/examples/`:
+
+**Mac OS / Linux**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+**Windows PowerShell**
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+Finally, let's install our packages
+
+```bash
+pip install -r requirements.txt
+```
+
+### The Fun Part
+
+Alright - Let's talk about the code that we have in `examples/search.py`
+
+The code itself runs a couple of different searches; a keyword search and a similarity search.
+
+At the beginning, we load the data contained within `knowledge.txt` into a list of lines:
+
+```python
+lines = load_lines(knowledge_path)
+```
+
+Each line becomes a chunk that we can search over.
+
+For keyword search, we can see that both the query and the doc are tokenized and then a score is computed based on word overlap with:
+
+```python
+q_terms = set(tokenize(query))
+d_terms = set(tokenize(doc))
+return len(q_terms.intersection(d_terms)) / len(q_terms)
+```
+
+So, keyword search baseically asks "How many of the query words appear in this line?"
+
+For similarity search we first cache all the embeddings to disk with:
+
+```python
+idx_data = build_or_load_embedding_cache(client, knowledge_path, cache_path, args.model)
+```
+
+We also perform checks to see if the `knowledge.txt` file has changed to determine whether or not to "re-cache" everything.
+
+Then, the following lines basically convert the query text to an embedding, compare the query embedding with each lines embedding, and returns a score based on similarity.
+
+```python
+q_vec = get_embeddings(client, [query], model=embed_model)[0]
+vectors = np.array(idx_data["vectors"], dtype=np.float32)
+scored = [(cosine_similarity(q_vec, vectors[i]), i) for i in range(len(lines))]
+```
+
+Similarity search answers "How close in meaning is this line with the query?"
+
+So know that we understand a bit about the code, let's go ahead and run it.
+
+### 🟢 Running the code
+
+Let's kick it off
+
+```bash
+python3 search.py --text "Best way to recover from malware"
+```
+
+This will run both searches on our provided text.  You should see a return similar to the following:
+
+```text
+=== Query ===
+Best way to recover from malware
+
+=== Keyword Search Results ===
+(no matches found)
+
+=== Similarity Search Results ===
+
+#1  score=0.4857  line=6
+Use a clean recovery environment to reduce the risk of reinfection during restoration.
+
+#2  score=0.4306  line=2
+Safe recovery starts by restoring from known-clean backups, not the most recent backups.
+
+#3  score=0.4061  line=13
+Recovery point selection matters: choose a restore point before the intrusion, not just before encryption.
+
+(Cache: knowledge.text-embedding-3-small.cache.json)
+
+Done.
+```
+
+As you can see, even though our entire `knowledge.txt` file is full of key insights around recovering from malware, it doesn't actually use those words - so the keyword search comes up with a whopping ZERO results.  Yet our similarity search, well, it scores each line and gives us the closest three matches based on meaning, rather than looking for a specific word.
+
+So, play around, change the text, try each search, see what you can figure out! Maybe try searching for "best way to cook potatoes". The similarity search, even though none of the results really cover off potatoes at all, will still return results, just with lower scores. This is why sometimes models seem to answer confidently, but are completely wrong.
 
 ## 📝 Lesson 5 Takeaways
 
