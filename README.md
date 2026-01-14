@@ -29,8 +29,8 @@ The repository is structured as one folder per lesson, in learning order.
 ├── README.md
 ├── lesson-01-foundations/
 ├── lesson-02-tokens/
-├── lesson-03-context/
-├── lesson-04-embeddings/
+├── lesson-03-hidden-state-vectors/
+├── lesson-04-context/
 ├── future_lessons
 ```
 
@@ -51,8 +51,10 @@ You will see this get updated as new lessons are created - For now, this is what
 
 * 🧠 [Lesson 1 - Foundations](lesson-01-foundations/README.md) -> Understand, at a high level, how LLMs actually work - and why even when we send the same prompt, we get different answers - all that seem to make sense...
 * 🔤 [Lesson 2 - Tokens](lesson-02-tokens/README.md) -> Understand what tokens are, why language models use them, and why tokens explain things like weird wording, context limits, and cost!
-* ✍️ [Lesson 3 - Context Windows](lesson-03-context/README.md) -> Understand what a context window is, what fits inside it, and why exceeding it leads to forgotten details, ignored instructions, and degraded responses.
-* ❓ [Lesson 4 - Embeddings](lesson-04-embeddings/README.md) -> Understand what embeddings are, what they actually look like, how vectors and vector databases fit together, and how embeddings are used to work with documents and past conversations when using an LLM.
+* 🏡 [Lesson 3 - Hidden State](lesson-03-hidden-state-vectors/README.md) -> Understand how the model track meaning and why that is important.
+* ✍️ [Lesson 4 - Context Windows](lesson-04-context/README.md) -> Understand what a context window is, what fits inside it, and why exceeding it leads to forgotten details, ignored instructions, and degraded responses.
+* ❓ [Lesson 5 - Embeddings](lesson-05-embeddings/README.md) -> Understand what embeddings are, what they actually look like, how vectors and vector databases fit together, and how embeddings are used to work with documents and past conversations when using an LLM.
+* 🔍 [Lesson 6 - Similarity Search](lesson-06-simularity_search/README.md) -> Understand the differences between keyword and similarity search and why the latter is the chosen method for AI applications.
 
 ## 🚀 How to Use This Repo
 

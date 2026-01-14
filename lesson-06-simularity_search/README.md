@@ -4,7 +4,7 @@
 
 ## 🤔 From “Meaning” to “Retrieval”
 
-In [Lesson 4](../lesson-04-embeddings/README.md), we learned how embeddings work:
+In [Lesson 5](../lesson-05-embeddings/README.md), we learned how embeddings work:
 
 * Text is converted into embeddings
 * Similar meaning produces similar vectors
